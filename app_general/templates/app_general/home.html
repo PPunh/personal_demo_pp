@@ -1,0 +1,8 @@
+{% extends 'app_general/components/base.html' %}
+{% load static %}
+
+
+{% block main-content %}
+    <h1>Home Page</h1>
+    <a href="{% url 'generate_qr' %}">Generate QR CODE</a>
+{% endblock %}
