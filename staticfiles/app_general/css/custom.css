@@ -1,5 +1,10 @@
 
 
-.h1{
-    color: red;
+
+#img_hero_slide{
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    width: 100%;
+    position: relative;
 }

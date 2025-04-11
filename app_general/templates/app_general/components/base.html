@@ -9,8 +9,16 @@
     <title>{{title}}</title>
 </head>
 <body>
-    
-    {% block main-content %} {% endblock %}
+    <!-- include Navigation bar  -->
+    {% include 'app_general/components/header.html' %}
 
+        <!-- Block Ceontent  -->
+        <div style="margin-top: 45px;">
+            {% block main-content %} {% endblock %}
+        </div>
+
+
+
+    <script src="{% static 'app_general/js/app.js' %}"></script>
 </body>
 </html>
