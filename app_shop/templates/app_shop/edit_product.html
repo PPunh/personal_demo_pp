@@ -1,0 +1,15 @@
+{% extends 'app_general/components/base.html' %}
+{% load static %}
+
+
+{% block main-content %}
+<div class="w3-container w3-content" style="max-width:1200px; margin-top: 45px;">
+    <h1>Edit Product</h1>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'admin_products' %}">Cancel</a>
+    </div>
+{% endblock %}

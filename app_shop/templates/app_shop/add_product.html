@@ -1,0 +1,79 @@
+{% extends 'app_general/components/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block main-content %}
+<div class="w3-container w3-content" style="max-width:1200px; margin-top: 45px;">
+    <h2 class="w3-text-teal">➕ Add New Product</h2>
+
+    <div class="w3-card w3-white w3-round-large w3-padding-32 w3-margin-top w3-animate-opacity">
+        <form method="post" enctype="multipart/form-data" class="w3-container">
+            {% csrf_token %}
+
+            <div class="w3-row-padding">
+                <!-- Category -->
+                <div class="w3-half w3-section">
+                    <label class="w3-text-grey"><b>Category</b></label>
+                    {{ form.category|add_class:"w3-input w3-border w3-round" }}
+                    {% if form.category.errors %}
+                        <div class="w3-text-red w3-small">{{ form.category.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Name -->
+                <div class="w3-half w3-section">
+                    <label class="w3-text-grey"><b>Name</b></label>
+                    {{ form.name|add_class:"w3-input w3-border w3-round" }}
+                    {% if form.name.errors %}
+                        <div class="w3-text-red w3-small">{{ form.name.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Description (Full width) -->
+                <div class="w3-section w3-col s12">
+                    <label class="w3-text-grey"><b>Description</b></label>
+                    {{ form.description|add_class:"w3-input w3-border w3-round" }}
+                    {% if form.description.errors %}
+                        <div class="w3-text-red w3-small">{{ form.description.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Price -->
+                <div class="w3-half w3-section">
+                    <label class="w3-text-grey"><b>Price</b></label>
+                    {{ form.price|add_class:"w3-input w3-border w3-round" }}
+                    {% if form.price.errors %}
+                        <div class="w3-text-red w3-small">{{ form.price.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Image -->
+                <div class="w3-half w3-section">
+                    <label class="w3-text-grey"><b>Image</b></label>
+                    {{ form.image }}
+                    {% if form.image.errors %}
+                        <div class="w3-text-red w3-small">{{ form.image.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Active -->
+                <div class="w3-section w3-col s12">
+                    <label class="w3-check">
+                        {{ form.is_active }} <span class="w3-text-grey"><b>Active</b></span>
+                    </label>
+                    {% if form.is_active.errors %}
+                        <div class="w3-text-red w3-small">{{ form.is_active.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="w3-center w3-margin-top">
+                <button type="submit" class="w3-button w3-teal w3-hover-indigo w3-round-large w3-padding-large">
+                    💾 Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

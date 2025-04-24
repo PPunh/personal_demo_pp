@@ -1,0 +1,24 @@
+{% extends 'app_general/components/base.html' %}
+{% load static %}
+
+
+{% block main-content %}
+<div class="w3-container w3-content" style="max-width:1200px; margin-top: 45px;">
+        <h1>Shop Page</h1>
+    {% for s in allproducts %}
+    <div class="w3-card-4 w3-round-large w3-padding w3-border w3-border-teal" style="width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+        <img src="{{ s.image.url }}" alt="product image" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+        
+        <div class="w3-container">
+            <h2 class="w3-text-teal w3-margin-bottom" style="font-size: 1.25em;"><b>Name:</b>{{ s.name }}</h2>
+            <p class="w3-text-grey w3-small" style="font-size: 0.875em;">{{ s.description }}</p>
+            <p class="w3-text-grey w3-small" style="font-size: 0.875em;"><b>Price:</b> <strong>{{ s.price }}</strong></p>
+            <p class="w3-text-grey w3-small" style="font-size: 0.875em;"><b>Category:</b> {{ s.category }}</p>
+            
+            <a href="#" class="w3-button w3-teal w3-round w3-hover-blue w3-hover-shadow w3-small" style="width: 100%; margin-top: 10px;">View Details</a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

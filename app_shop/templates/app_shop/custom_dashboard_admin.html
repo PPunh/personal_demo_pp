@@ -1,0 +1,22 @@
+{% extends 'app_general/components/base.html' %}
+{% load static %}
+
+
+{% block main-content %}
+<div class="w3-container w3-content" style="max-width:1200px; margin-top: 45px;">
+    <h1>Dashboard</h1>
+    <a href="{% url 'add_product' %}" class="add_product_btn w3-button w3-teal w3-hover-red w3-hover-shadow w3-round-large">Add New  Product</a>
+    <div class="w3-container">
+        {% for product in products %}
+            <div class="w3-card w3-white w3-round-large w3-padding-32 w3-margin-top w3-animate-opacity">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p>Price: {{ product.price }}</p>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w3-image" style="max-width: 200px;">
+                <a href="{% url 'edit_product' product.id %}" class="w3-button w3-teal w3-hover-red w3-hover-shadow w3-round-large">Edit</a>
+            </div>
+        {% empty %}
+            <p>No products available.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
